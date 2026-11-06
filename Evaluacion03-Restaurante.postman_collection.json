@@ -1,0 +1,328 @@
+{
+  "info": {
+    "name": "Evaluacion03 Restaurante - Laboratorio 05",
+    "description": "Solicitudes manuales de cliente, plato y pedido. Revisar IDs y datos antes de ejecutar POST, PUT o DELETE. La colecci?n no contiene scripts de ejecuci?n autom?tica.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Cliente",
+      "item": [
+        {
+          "name": "GET todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{clienteBaseUrl}}/api/clientes"
+          }
+        },
+        {
+          "name": "GET por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{clienteBaseUrl}}/api/clientes/{{clienteId}}"
+          }
+        },
+        {
+          "name": "POST crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{clienteBaseUrl}}/api/clientes",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Mar?a\",\n  \"apellido\": \"G?mez\",\n  \"correo\": \"maria.gomez@example.com\",\n  \"telefono\": \"987654321\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "PUT actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{clienteBaseUrl}}/api/clientes/{{clienteId}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Mar?a\",\n  \"apellido\": \"G?mez\",\n  \"correo\": \"maria.gomez@example.com\",\n  \"telefono\": \"987654321\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "DELETE por ID - manual",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{clienteBaseUrl}}/api/clientes/{{clienteId}}"
+          }
+        },
+        {
+          "name": "POST correo inv?lido - 400",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{clienteBaseUrl}}/api/clientes",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Mar?a\",\n  \"apellido\": \"G?mez\",\n  \"correo\": \"correo-invalido\",\n  \"telefono\": \"987654321\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Plato",
+      "item": [
+        {
+          "name": "GET todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{platoBaseUrl}}/api/platos"
+          }
+        },
+        {
+          "name": "GET por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{platoBaseUrl}}/api/platos/{{platoId1}}"
+          }
+        },
+        {
+          "name": "POST crear",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{platoBaseUrl}}/api/platos",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Arroz con pollo\",\n  \"descripcion\": \"Arroz con pollo y salsa\",\n  \"precio\": 24.5,\n  \"disponible\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "PUT actualizar",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{platoBaseUrl}}/api/platos/{{platoId1}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Arroz con pollo\",\n  \"descripcion\": \"Arroz con pollo y salsa\",\n  \"precio\": 24.5,\n  \"disponible\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "DELETE por ID - manual",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{platoBaseUrl}}/api/platos/{{platoId1}}"
+          }
+        },
+        {
+          "name": "POST precio negativo - 400",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{platoBaseUrl}}/api/platos",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Arroz con pollo\",\n  \"descripcion\": \"Arroz con pollo y salsa\",\n  \"precio\": -5.0,\n  \"disponible\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pedido",
+      "item": [
+        {
+          "name": "GET todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{pedidoBaseUrl}}/api/pedidos"
+          }
+        },
+        {
+          "name": "GET por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{pedidoBaseUrl}}/api/pedidos/{{pedidoId}}"
+          }
+        },
+        {
+          "name": "POST dos detalles",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{pedidoBaseUrl}}/api/pedidos",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idCliente\": {{clienteId}},\n  \"detalles\": [\n    {\"idPlato\": {{platoId1}}, \"cantidad\": 2},\n    {\"idPlato\": {{platoId2}}, \"cantidad\": 1}\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "PUT cambiar estado",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{pedidoBaseUrl}}/api/pedidos/{{pedidoId}}/estado",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"CONFIRMADO\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "DELETE por ID - manual",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "{{pedidoBaseUrl}}/api/pedidos/{{pedidoId}}"
+          }
+        },
+        {
+          "name": "POST cliente inexistente - 404",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": "{{pedidoBaseUrl}}/api/pedidos",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idCliente\": {{clienteInexistenteId}},\n  \"detalles\": [{\"idPlato\": {{platoId1}}, \"cantidad\": 1}]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "clienteBaseUrl",
+      "value": "http://localhost:8081"
+    },
+    {
+      "key": "platoBaseUrl",
+      "value": "http://localhost:8082"
+    },
+    {
+      "key": "pedidoBaseUrl",
+      "value": "http://localhost:8083"
+    },
+    {
+      "key": "clienteId",
+      "value": "1"
+    },
+    {
+      "key": "platoId1",
+      "value": "1"
+    },
+    {
+      "key": "platoId2",
+      "value": "2"
+    },
+    {
+      "key": "pedidoId",
+      "value": "1"
+    },
+    {
+      "key": "clienteInexistenteId",
+      "value": "999999"
+    }
+  ]
+}

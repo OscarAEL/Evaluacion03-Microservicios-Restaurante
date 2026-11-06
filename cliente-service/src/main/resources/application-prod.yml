@@ -1,0 +1,12 @@
+server:
+  port: ${CLIENTE_PORT:8081}
+spring:
+  datasource:
+    url: ${CLIENTE_DB_URL}
+    username: ${CLIENTE_DB_USERNAME}
+    password: ${CLIENTE_DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.MySQLDialect

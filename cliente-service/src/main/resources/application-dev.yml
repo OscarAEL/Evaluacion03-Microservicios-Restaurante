@@ -1,0 +1,12 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    url: ${CLIENTE_DB_URL:jdbc:mysql://localhost:3306/bd_cliente_eval03}
+    username: ${CLIENTE_DB_USERNAME:root}
+    password: ${CLIENTE_DB_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQLDialect

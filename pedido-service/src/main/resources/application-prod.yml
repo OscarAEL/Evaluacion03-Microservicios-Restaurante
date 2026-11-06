@@ -1,0 +1,17 @@
+server:
+  port: ${PEDIDO_PORT:8083}
+spring:
+  datasource:
+    url: ${PEDIDO_DB_URL}
+    username: ${PEDIDO_DB_USERNAME}
+    password: ${PEDIDO_DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    database-platform: org.hibernate.dialect.MySQLDialect
+services:
+  cliente:
+    url: ${CLIENTE_SERVICE_URL}
+  plato:
+    url: ${PLATO_SERVICE_URL}
